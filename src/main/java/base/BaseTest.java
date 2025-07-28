@@ -3,11 +3,16 @@ package base;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.*;
 import com.aventstack.extentreports.*;
 import com.aventstack.extentreports.reporter.ExtentSparkReporter;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import utils.DriverManager;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 
 public class BaseTest {
    // protected WebDriver driver;
@@ -29,11 +34,15 @@ public class BaseTest {
     }
 
     @BeforeMethod
-    public void setUp() {
+    public void setUp() throws MalformedURLException {
 
             WebDriverManager.chromedriver().setup();
             WebDriver driver = new ChromeDriver();
-            DriverManager.setDriver(driver); // Set to ThreadLocal
+            //DriverManager.setDriver(driver); // Set to ThreadLocal
+        // Selenium Grid on Azure Cloud
+        ChromeOptions options = new ChromeOptions();
+        driver = new RemoteWebDriver(new URL("http://localhost:4444/wd/hub"), options);
+        driver.manage().window().maximize();
 
     }
 

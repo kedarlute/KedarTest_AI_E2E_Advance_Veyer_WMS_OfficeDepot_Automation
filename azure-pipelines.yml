@@ -1,0 +1,26 @@
+trigger:
+  - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+variables:
+  imageName: 'selenium-tests'
+
+steps:
+  - task: Docker@2
+    inputs:
+      command: 'build'
+      Dockerfile: '**/Dockerfile'
+      tags: 'latest'
+      repository: '$(imageName)'
+
+  - task: Docker@2
+    inputs:
+      command: 'run'
+      containerName: 'testcontainer'
+      image: '$(imageName):latest'
+
+  - script: |
+      docker-compose -f docker-compose.yml up -d
+    displayName: 'Start Selenium Grid'

@@ -5,5 +5,5 @@
         public static final String BASE_URL = "https://www.officedepot.com";
 
         public static final String ADMIN_USERNAME = "admin_user";
-        public static final String ADMIN_PASSWORD = "secure_password";
+        public static final String ADMIN_PASSWORD = "password";
     }
