@@ -35,8 +35,13 @@
       <artifactId>webdrivermanager</artifactId>
       <version>6.2.0</version>
     </dependency>
+   
 
-
+    <dependency>
+        <groupId>io.appium</groupId>
+        <artifactId>java-client</artifactId>
+        <version>8.5.1</version>
+    </dependency>
 
     <dependency>
       <groupId>org.seleniumhq.selenium</groupId>
