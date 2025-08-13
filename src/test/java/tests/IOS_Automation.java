@@ -17,7 +17,7 @@ public class IOS_Automation {
         capabilities.setCapability("deviceName", "iPhone 8");
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("platformVersion", "11.3");
-        capabilities.setCapability("app", "/Users/shanliu/TW/QA/Mobile/AppiumDemo/src/test/apps/shoppingIOS.app");
+        capabilities.setCapability("app", "/Users/kedarl/Mobile/AppiumDemo/src/test/apps/shoppingIOS.app");
         capabilities.setCapability("automationName", "UITest");
         capabilities.setCapability("fullReset", true);
 
