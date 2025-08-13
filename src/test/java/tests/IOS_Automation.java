@@ -18,7 +18,7 @@ public class IOS_Automation {
         capabilities.setCapability("platformName", "iOS");
         capabilities.setCapability("platformVersion", "11.3");
         capabilities.setCapability("app", "/Users/shanliu/TW/QA/Mobile/AppiumDemo/src/test/apps/shoppingIOS.app");
-        capabilities.setCapability("automationName", "XCUITest");
+        capabilities.setCapability("automationName", "UITest");
         capabilities.setCapability("fullReset", true);
 
         URL remoteUrl = new URL("http://127.0.0.1:4723/wd/hub");
