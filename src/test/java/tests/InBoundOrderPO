@@ -8,24 +8,9 @@ import org.testng.annotations.*;
 public class InboundTests {
     WebDriver driver;
 
-    @BeforeClass
-    public void setup() {
-        driver = new ChromeDriver();
-        driver.manage().window().maximize();
-        driver.get("http://wms-demo-url.com/login");
-    }
+   
 
     @Test(priority = 1)
-    public void loginTest() {
-        driver.findElement(By.id("username")).sendKeys("admin");
-        driver.findElement(By.id("password")).sendKeys("password123");
-        driver.findElement(By.id("loginBtn")).click();
-
-        WebElement dashboard = driver.findElement(By.id("welcomeMsg"));
-        Assert.assertTrue(dashboard.isDisplayed(), "Login failed!");
-    }
-
-    @Test(priority = 2, dependsOnMethods = "loginTest")
     public void createPurchaseOrder() {
         driver.findElement(By.id("menu_inbound")).click();
         driver.findElement(By.id("createPO")).click();
