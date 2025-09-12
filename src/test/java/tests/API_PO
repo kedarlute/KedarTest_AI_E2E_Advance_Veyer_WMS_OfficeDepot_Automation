@@ -1,3 +1,10 @@
+
+package tests;
+
+/**
+ * @author: Kedarnath Lute
+ */
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import org.openqa.selenium.By;
