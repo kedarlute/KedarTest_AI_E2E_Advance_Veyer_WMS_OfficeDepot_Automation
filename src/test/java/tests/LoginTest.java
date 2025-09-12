@@ -25,7 +25,7 @@ public class LoginTest extends BaseTest {
         
         }
         
-        @Test(priority = 1)
+        @Test(priority = 0)
         public void loginTest() {
         driver.findElement(By.id("username")).sendKeys(Constants.UserName);
         driver.findElement(By.id("password")).sendKeys(Constants.Password);
@@ -35,7 +35,7 @@ public class LoginTest extends BaseTest {
         Assert.assertTrue(dashboard.isDisplayed(), "Login failed!");
         }
         
-        @Test(retryAnalyzer = RetryAnalyzer.class)
+        @Test(retryAnalyzer = RetryAnalyzer.class,dependsOnMethods = "loginTest"))
         public void testOfficeDepotTitle() {
             test = extent.createTest("VEYER by Office Depot Title Test");
             //WebDriver driver = DriverManager.getDriver();
