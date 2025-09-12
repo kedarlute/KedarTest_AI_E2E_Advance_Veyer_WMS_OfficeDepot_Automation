@@ -18,7 +18,7 @@ public class LoginTest extends BaseTest {
 
         @Test(retryAnalyzer = RetryAnalyzer.class)
         public void testOfficeDepotTitle() {
-            test = extent.createTest("OfficeDepot Title Test");
+            test = extent.createTest("VEYER by Office Depot Title Test");
             WebDriver driver = DriverManager.getDriver();
             driver.get(Constants.BASE_URL);
             String title = driver.getTitle();
