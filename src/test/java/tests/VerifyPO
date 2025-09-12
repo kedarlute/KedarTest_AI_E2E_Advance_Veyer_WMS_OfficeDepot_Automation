@@ -18,11 +18,29 @@ public class VerifyPO {
    
 
     @Test(priority = 1)
-    public void verifypo() {
-        driver.findElement(By.id("menu")).click();
-        driver.findElement(By.id("po")).click();
-        
-        Assert.assertTrue(confirmation.isDisplayed(), "Sucess");
+    public void verifyPO() {
+        String poNumber = "PO12345";
+
+        // Navigate to PO List
+        driver.findElement(By.id("menu_inbound")).click();
+        driver.findElement(By.id("viewPOList")).click();
+
+        // Search PO
+        driver.findElement(By.id("searchPO")).sendKeys(poNumber);
+        driver.findElement(By.id("searchBtn")).click();
+
+        // Verify PO appears in results
+        WebElement result = driver.findElement(By.xpath("//td[contains(text(),'" + poNumber + "')]"));
+        Assert.assertTrue(result.isDisplayed(), "PO " + poNumber + " not found in the list!");
+
+        // Verify Vendor and Item details
+        WebElement vendor = driver.findElement(By.xpath("//td[contains(text(),'" + poNumber + "')]/following-sibling::td[1]"));
+        WebElement item = driver.findElement(By.xpath("//td[contains(text(),'" + poNumber + "')]/following-sibling::td[2]"));
+        WebElement qty = driver.findElement(By.xpath("//td[contains(text(),'" + poNumber + "')]/following-sibling::td[3]"));
+
+        Assert.assertEquals(vendor.getText(), "ABC Supplier", "Vendor mismatch!");
+        Assert.assertEquals(item.getText(), "ITEM001", "Item mismatch!");
+        Assert.assertEquals(qty.getText(), "100", "Quantity mismatch!");
     }
 
     @AfterClass
