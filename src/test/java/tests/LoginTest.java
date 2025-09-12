@@ -26,21 +26,14 @@ public class LoginTest extends BaseTest {
             test.log(Status.INFO, "Launching browser");
 
 
-         Assert.assertEquals(driver.getTitle(),"Office Depot OfficeMax | Official Online Store");
+         Assert.assertEquals(driver.getTitle(),"VEYER by Office Depot - 3PL & eCommerce Fulfillment Services");
             test.log(Status.PASS, "Title verified successfully");
 
             test.pass("Step Passed",
                     MediaEntityBuilder.createScreenCaptureFromPath("screenshot.png").build());
 
 
-          /*
-          if (title.contains("Office Depot OfficeMax")) {
-                test.pass("Title of Home Page  verified successfully");
-            } else {
-                test.fail("Title of Home Page does not match");
-            }
-
-           */
+         
         }
     }
 
