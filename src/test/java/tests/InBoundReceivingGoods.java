@@ -1,38 +1,32 @@
+
 package tests;
 
 /**
  * @author: Kedarnath Lute
  */
 
-import base.BaseTest;
-import com.aventstack.extentreports.Status;
-import constants.Constants;
-import listeners.RetryAnalyzer;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.testng.annotations.Test;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.testng.Assert;
-import com.aventstack.extentreports.MediaEntityBuilder;
-import utils.DriverManager;
+import org.testng.annotations.*;
 
-public class LoginTest extends BaseTest {
+public class InBoundReceivingGoods {
+    WebDriver driver;
 
-        @Test(retryAnalyzer = RetryAnalyzer.class)
-        public void testOfficeDepotTitle() {
-            test = extent.createTest("VEYER by Office Depot Title Test");
-            WebDriver driver = DriverManager.getDriver();
-            driver.get(Constants.BASE_URL);
-            String title = driver.getTitle();
-            test.info("Title is: " + title);
-            test.log(Status.INFO, "Launching browser");
+   
 
-
-         Assert.assertEquals(driver.getTitle(),"VEYER by Office Depot - 3PL & eCommerce Fulfillment Services");
-            test.log(Status.PASS, "Title verified successfully");
-
-            test.pass("Step Passed",
-                    MediaEntityBuilder.createScreenCaptureFromPath("screenshot.png").build());
-
-
-         
-        }
+    @Test(priority = 1)
+    public void inbound() {
+        driver.findElement(By.id("menu_inbound")).click();
+        driver.findElement(By.id("inbound")).click();
+        
+        Assert.assertTrue(confirmation.isDisplayed(), "Sucess");
     }
+
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
+}
