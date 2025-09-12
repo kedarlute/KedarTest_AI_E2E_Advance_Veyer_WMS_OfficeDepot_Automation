@@ -16,11 +16,19 @@ import utils.DriverManager;
 
 public class LoginTest extends BaseTest {
 
+   WebDriver driver;
 
+        @BeforeClass
+        public void setup() {
+        driver = new ChromeDriver();
+        driver.manage().window().maximize();
+        
+        }
+        
         @Test(priority = 1)
         public void loginTest() {
-        driver.findElement(By.id("username")).sendKeys("admin");
-        driver.findElement(By.id("password")).sendKeys("password123");
+        driver.findElement(By.id("username")).sendKeys(Constants.UserName);
+        driver.findElement(By.id("password")).sendKeys(Constants.Password);
         driver.findElement(By.id("loginBtn")).click();
 
         WebElement dashboard = driver.findElement(By.id("welcomeMsg"));
