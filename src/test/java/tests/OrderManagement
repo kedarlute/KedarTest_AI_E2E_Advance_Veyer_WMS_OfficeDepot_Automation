@@ -1,1 +1,49 @@
 
+package tests;
+
+/**
+ * @author: Kedarnath Lute
+ */
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.testng.Assert;
+import org.testng.annotations.*;
+
+public class OrderManagement {
+    WebDriver driver;
+
+   
+
+    @Test(priority = 1)
+public void createSalesOrder() {
+    driver.findElement(By.id("menu_outbound")).click();
+    driver.findElement(By.id("createSO")).click();
+
+    driver.findElement(By.id("soNumber")).sendKeys("SO98765");
+    driver.findElement(By.id("customerName")).sendKeys("XYZ Retailer");
+    driver.findElement(By.id("itemCode")).sendKeys("ITEM001");
+    driver.findElement(By.id("quantity")).sendKeys("50");
+    driver.findElement(By.id("saveSO")).click();
+
+    WebElement confirmation = driver.findElement(By.xpath("//div[contains(text(),'SO Created Successfully')]"));
+    Assert.assertTrue(confirmation.isDisplayed(), "Sales Order creation failed!");
+}
+
+@Test(priority = 2, dependsOnMethods = "createSalesOrder")
+public void verifyPickingList() {
+    driver.findElement(By.id("menu_picking")).click();
+    driver.findElement(By.id("searchSO")).sendKeys("SO98765");
+    driver.findElement(By.id("generatePicking")).click();
+
+    WebElement pickingList = driver.findElement(By.id("pickingListTable"));
+    Assert.assertTrue(pickingList.isDisplayed(), "Picking list not generated!");
+}
+
+    @AfterClass
+    public void tearDown() {
+        driver.quit();
+    }
+}
