@@ -11,7 +11,6 @@ import listeners.RetryAnalyzer;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.Test;
 import org.testng.Assert;
-import com.aventstack.extentreports.MediaEntityBuilder;
 import utils.DriverManager;
 
 public class LoginTest extends BaseTest {
