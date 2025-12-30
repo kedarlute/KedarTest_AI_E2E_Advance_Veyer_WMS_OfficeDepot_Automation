@@ -1,3 +1,9 @@
+package utils;
+
+/**
+ * @author: Kedarnath Lute
+--- Semantic XPath (label, text, neighbors- following)
+ */
 import org.openqa.selenium.By;
 
 public class SemanticXPath {
