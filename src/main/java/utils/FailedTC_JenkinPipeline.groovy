@@ -25,6 +25,16 @@ pipeline {
             }
         }
 
+    post {
+    failure {
+        sh """
+        java FailurePredictor target/build.log > prediction.txt
+        """
+        sh "cat prediction.txt"
+    }
+}
+
+
       
     }
 }
