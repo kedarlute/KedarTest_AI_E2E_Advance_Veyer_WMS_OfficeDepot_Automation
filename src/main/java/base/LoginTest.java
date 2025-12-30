@@ -26,7 +26,6 @@ public class LoginTest extends BaseTest {
         
         @Test(priority = 0)
         public void login_with_AIFindElement() {
-
        AIFindElement ai = new AIFindElement(driver);
        AILocator usernameLocator = new AILocator(
             By.id("username"),
@@ -35,7 +34,6 @@ public class LoginTest extends BaseTest {
                 SemanticXPath.inputByLabel("Username")
             )
        );
-
        AILocator passwordLocator = new AILocator(
             By.id("password"),
             List.of(
@@ -43,17 +41,27 @@ public class LoginTest extends BaseTest {
                 SemanticXPath.inputByLabel("Password")
             )
       );
+     AILocator loginbtnLocator = new AILocator(
+            By.id("loginBtn"),
+            List.of(
+                By.name("login"),
+                SemanticXPath.inputByLabel("Login")
+            )
+      );
+       AILocator welcomeMsgLocator = new AILocator(
+            By.id("welcomeMsg"),
+            List.of(
+                By.name("welcome"),
+                SemanticXPath.inputByLabel("Welcome")
+            )
+      );
 
       ai.find("username", usernameLocator).sendKeys("admin");
       ai.find("password", passwordLocator).sendKeys("password123");
-
-   
-     
-       driver.findElement(By.id("loginBtn")).click();
-
-        WebElement dashboard = driver.findElement(By.id("welcomeMsg"));
-        Assert.assertTrue(dashboard.isDisplayed(), "Login failed!");
-        }
+      ai.find("Login", loginbtnLocator).click();
+      WebElement dashboard = ai.find("Welcome", welcomeMsgLocator);
+      Assert.assertTrue(dashboard.isDisplayed(), "Login Passed!");
+   }
         
         @Test(retryAnalyzer = RetryAnalyzer.class,dependsOnMethods = "loginTest"))
         public void testOfficeDepotTitle() {
