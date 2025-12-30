@@ -1,3 +1,11 @@
+package utils;
+
+/**
+ * @author: Kedarnath Lute
+ Run only impacted tests based on:
+    1> Changed files
+    2> Historical mapping (can be replaced by ML model)
+ */
 import java.util.*;
 
 public class AITestSelector {
