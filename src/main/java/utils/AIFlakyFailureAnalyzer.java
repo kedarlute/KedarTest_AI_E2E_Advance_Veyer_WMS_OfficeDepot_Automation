@@ -1,4 +1,9 @@
+package utils;
 
+/**
+ * @author: Kedarnath Lute
+  -- Failure pattern learning (timeouts, stale elements, intercepts)
+ */
 public class AIFlakyFailureAnalyzer {
 
     public static boolean isFlaky(Exception e) {
