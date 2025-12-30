@@ -7,7 +7,7 @@ pipeline {
                
                 sh 'mvn clean install -Dmaven.test.failure.ignore=true'
             }
-        }
+        
         
    stage('Self Healing') {
     when {
@@ -34,4 +34,5 @@ pipeline {
         }
     }
 }
+}            
 }
