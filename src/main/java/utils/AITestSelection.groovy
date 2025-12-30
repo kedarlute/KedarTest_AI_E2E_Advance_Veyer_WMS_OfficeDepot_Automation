@@ -1,5 +1,15 @@
-stage('AI Test Selection') {
-    steps {
+pipeline {
+    agent any
+
+ stages {
+   stage('Build and Run Initial Tests') {
+            steps {
+               
+                sh 'mvn clean install -Dmaven.test.failure.ignore=true'
+            }}
+
+     stage('AI Test Selection') {
+     steps {
         script {
             def files = sh(
                 script: "git diff --name-only HEAD~1",
