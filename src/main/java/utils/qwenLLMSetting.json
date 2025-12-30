@@ -1,0 +1,8 @@
+{
+  "model": "qwen-coder:30b",
+  "prompt": "Optimize Java Selenium framework for flaky test handling.",
+  "temperature": 0.15,
+  "top_p": 0.9,
+  "repeat_penalty": 1.1,
+  "max_tokens": 1500
+}
