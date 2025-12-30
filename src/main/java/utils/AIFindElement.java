@@ -1,3 +1,9 @@
+package utils;
+
+/**
+ * @author: Kedarnath Lute
+1. Primary locator first; 2. Fallback locators (learned / stored); 3. Semantic XPath (label, text, neighbors)
+ */
 import org.openqa.selenium.*;
 import org.openqa.selenium.support.ui.*;
 
