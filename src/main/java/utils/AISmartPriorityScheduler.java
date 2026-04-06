@@ -1,5 +1,10 @@
 import java.util.*;
 
+/**
+ * @author: Kedarnath Lute
+    Smart Priority -- Build ML which ranks which tests to run first based on risk, code changes, 
+ **/   
+
 public class AISmartPriorityScheduler {
 
     public static class TestMeta {
