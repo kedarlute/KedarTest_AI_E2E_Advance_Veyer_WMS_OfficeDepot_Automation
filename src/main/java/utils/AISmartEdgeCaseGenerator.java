@@ -1,6 +1,9 @@
 import java.util.*;
 
+/**
+ * @author: Kedarnath Lute
 AI script which suggests additional edge cases, Empty inputs, special characters, extreme values.
+**/
 
 public class AISmartEdgeCaseGenerator {
 
