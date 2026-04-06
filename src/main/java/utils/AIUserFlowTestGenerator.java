@@ -1,5 +1,10 @@
 import java.util.*;
 
+/**
+ * @author: Kedarnath Lute
+1. NLP models can parse user flows (from logs or analytics) and generate end‑to‑end journey tests automatically.
+ */
+
 public class AIUserFlowTestGenerator {
 
     public static class UserAction {
