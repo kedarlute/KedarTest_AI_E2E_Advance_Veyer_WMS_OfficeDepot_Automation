@@ -1,5 +1,10 @@
 import java.util.*;
 
+/**
+ * @author: Kedarnath Lute
+    NLP and ML detect changes in application UI or workflows/Journey; with changed navigation paths
+ **/   
+
 public class AIWorkflowChangeDetector {
 
     public static class UserAction {
