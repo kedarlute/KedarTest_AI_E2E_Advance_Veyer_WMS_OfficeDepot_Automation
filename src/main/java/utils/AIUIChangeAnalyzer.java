@@ -4,6 +4,11 @@ import org.jsoup.nodes.Element;
 
 import java.util.*;
 
+/**
+ * @author: Kedarnath Lute
+    UI changes - Build ML models which detect subtle changes in the DOM, CSS, or workflows that would normally break locators.
+**/
+
 public class AIUIChangeAnalyzer {
 
     // Store baseline DOM snapshots for workflows
